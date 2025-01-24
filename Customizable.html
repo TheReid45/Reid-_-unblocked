@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customizable | Reid Apps</title>
+    <link rel="stylesheet" href="storage/css/settings.css">
+    <style>
+        /* Dark Mode */
+        :root {
+            --background-color: #121212;
+            --text-color: #fff;
+            --button-bg: #3a5f3a;
+            --button-hover-bg: #2c472c;
+            --border-color: #3a5f3a;
+            --link-color: #42a5f5;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        button {
+            background-color: var(--button-bg);
+            color: var(--text-color);
+            border: 2px solid var(--border-color);
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: var(--button-hover-bg);
+        }
+
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+
+        #content-side {
+            margin: 20px;
+        }
+
+        #theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #theme-toggle:hover {
+            background-color: #444;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="content-side">
+        <h1>Settings</h1>
+        <a href="index.html" style="font-size: 18px;">Go to homepage</a>
+        
+        <br><br>
+
+        <h2>Tab Cloaking</h2>
+        <select id="presetSelect">
+            <option value="google">Google</option>
+            <option value="googleclassroom">Google Classroom</option>
+            <option value="googledrive">Google Drive</option>
+            <option value="chrometab">Chrome New Tab</option>
+            <option value="gmail">Gmail</option>
+            <option value="bing">Bing</option>
+            <option value="desmos">Desmos Calculator</option>
+            <option value="wikipedia">Wikipedia</option>
+        </select>
+        
+        <button id="saveButton">Select Cloak</button>
+        <button id="resetButton">Reset Cloak</button>
+        <p id="success" style="display: none;">Success message here</p>
+        
+        <br><br>
+        
+        <h2>Themes</h2>
+        <select id="theme-select">
+            <option value="seraph">Seraph</option>
+            <option value="azurite">Azurite</option>
+            <option value="retro">Retro</option>
+            <option value="cosmic">Cosmic</option>
+            <option value="molten">Molten</option>
+            <option value="amethyst">Amethyst</option>
+            <option value="ethereal">Ethereal</option>
+            <option value="subzero">Subzero</option>
+            <option value="metro">Metro</option>
+            <option value="ghostly">Ghostly</option>
+            <option value="custom">Custom</option>
+        </select>
+        
+        <button id="apply-theme">Apply Theme</button>
+        
+        <br><br>
+        
+        <h2>Panic Mode</h2>
+        <input type="text" id="panicKey" placeholder="Choose a key combination" readonly>
+        <input type="url" id="panicUrl" placeholder="https://www.desmos.com/scientific">
+        <button onclick="saveSettings()">Set Panic Key</button>
+        <p id="success-panic" style="display: none;">Success message here</p>
+        
+        <br><br>
+        
+        <h2>Data Management</h2>
+        <button onclick="importData()">Import Data</button>
+        <button onclick="exportData()">Export Data</button>
+        <button onclick="clearData()">Clear Data</button>
+        
+        <br><br>
+        
+        <h2>Other</h2>
+        <p style="text-decoration: underline;">Link Behavior</p>
+        <label>
+            <input type="radio" name="openBlankSetting" value="true"> Open links in new tab
+        </label>
+        <label>
+            <input type="radio" name="openBlankSetting" value="false"> Open links in same tab
+        </label>
+    </div>
+
+    <script>
+        // JavaScript not needed for toggle anymore as it's always dark mode
+    </script>
+</body>
+</html>
