@@ -58,6 +58,22 @@
             font-size: 18px;
             margin: 10px 0;
         }
+        .theater-mode {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .theater-mode iframe {
+            width: 90vw;
+            height: 90vh;
+        }
         .buttons {
             text-align: center;
             margin: 20px 0;
@@ -72,6 +88,7 @@
             background: #3a5f3a;
             border-radius: 5px;
             transition: background 0.3s;
+            cursor: pointer;
         }
         .buttons a:hover {
             background: #2c472c;
@@ -81,6 +98,9 @@
             background: #222;
             text-align: center;
             padding: 10px 20px;
+        }
+        .hidden {
+            display: none;
         }
     </style>
 </head>
@@ -99,10 +119,10 @@
     <section class="hero">
         <h2>Welcome to Slope</h2>
         <p>A simple yet addictive online game where you control a ball rolling down a series of slopes</p>
-<iframe id="gameFrame" src="https://storage.y8.com/y8-studio/unity_webgl/bitlaslt/slope_v_1_2_5/" scrolling="no" allowfullscreen></iframe>
+        <iframe id="gameFrame" src="https://storage.y8.com/y8-studio/unity_webgl/bitlaslt/slope_v_1_2_5/" scrolling="no" allowfullscreen></iframe>
     </section>
     <div class="buttons">
-        <a href="#" onclick="toggleFullScreen()">Full Screen</a>
+        <a href="#" onclick="toggleTheaterMode()">Theater Mode</a>
         <a href="#">Get Started</a>
         <a href="#">Learn More</a>
         <a href="https://discord.gg/reks7ZwH">Contact me</a>
@@ -110,22 +130,18 @@
     <footer>
         <p>&copy; 2025 Reid Apps. All rights reserved.</p>
     </footer>
+    <div id="theaterContainer" class="hidden">
+        <div class="theater-mode">
+            <iframe id="theaterGameFrame" src="https://storage.y8.com/y8-studio/unity_webgl/bitlaslt/slope_v_1_2_5/" scrolling="no" allowfullscreen></iframe>
+            <a href="#" onclick="toggleTheaterMode()" style="position: absolute; top: 10px; right: 10px; color: white; font-size: 20px; background: red; padding: 5px 10px; border-radius: 5px;">Close</a>
+        </div>
+    </div>
     <script>
-        function toggleFullScreen() {
-            let iframe = document.getElementById('gameFrame');
-            if (iframe.requestFullscreen) {
-                iframe.requestFullscreen();
-            } else if (iframe.mozRequestFullScreen) {
-                iframe.mozRequestFullScreen();
-            } else if (iframe.webkitRequestFullscreen) {
-                iframe.webkitRequestFullscreen();
-            } else if (iframe.msRequestFullscreen) {
-                iframe.msRequestFullscreen();
-            }
+        function toggleTheaterMode() {
+            let theaterContainer = document.getElementById('theaterContainer');
+            theaterContainer.classList.toggle('hidden');
         }
     </script>
-    <script src="storage/js/cloak.js"></script>
-    <script src="storage/js/settings.js"></script>
-    <script src="storage/js/data.js"></script>
 </body>
 </html>
+
