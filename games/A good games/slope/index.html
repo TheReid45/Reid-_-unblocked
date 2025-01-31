@@ -138,14 +138,31 @@
         <p>a simple yet addictive online game where you control a ball rolling down a series of slopes</p>
 <iframe src="https://storage.y8.com/y8-studio/unity_webgl/bitlaslt/slope_v_1_2_5/" scrolling="no" style="width: 960px; height: 641px; border: 0; margin: 0; padding: 0;"></iframe>
     </section>
-    <div class="buttons">
-        <a href="#">Get Started</a>
-        <a href="#">Learn More</a>
-        <a href="https://discord.gg/reks7ZwH">Contact me</a>
-    </div>
+        <div class="buttons">
+            <a href="#" onclick="toggleFullScreen()">Full Screen</a>
+            <a href="#">Get Started</a>
+            <a href="#">Learn More</a>
+            <a href="https://discord.gg/reks7ZwH">Contact me</a>
+        </div>
+    </section>
     <footer>
         <p>&copy; 2025 Reid Apps. All rights reserved.</p>
     </footer>
+    <script>
+        function toggleFullScreen() {
+            let iframe = document.getElementById('gameFrame');
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            } else if (iframe.mozRequestFullScreen) {
+                iframe.mozRequestFullScreen();
+            } else if (iframe.webkitRequestFullscreen) {
+                iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) {
+                iframe.msRequestFullscreen();
+            }
+        }
+    </script>
+
     <script src="storage/js/cloak.js"></script>
     <script src="storage/js/settings.js"></script>
     <script src="storage/js/data.js"></script>
